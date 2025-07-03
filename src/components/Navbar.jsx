@@ -1,11 +1,13 @@
 import React from 'react';
 import './Navbar.css';
+import logo from '../assets/image-2.svg'
+
 
 const Navbar = () => {
   return (
     <div className="Navbox">
-      <h1>PASTE</h1>
-      <i className="ri-sun-fill settings-icon"></i>
+      <img id="logo" src={logo} alt="Paste App Logo" />
+      <i className="ri-sun-fill settings-icon" title="Toggle theme"></i>
     </div>
   );
 };

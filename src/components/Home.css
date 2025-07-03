@@ -102,6 +102,12 @@
     color: white;
 }
 
+.created-date {
+  font-size: 0.75rem;
+  color: #7a7a7a;
+  margin-top: 0.25rem;
+}
+
 
 /* ========== Mobile Adjustments ========== */
 @media (max-width: 600px) {

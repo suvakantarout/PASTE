@@ -53,7 +53,11 @@ const Home = () => {
                     pastes.map((paste) => (
                         <div key={paste._id} className="paste-card">
                             <h3>{paste.title}.txt</h3>
-                            <p className="read-more">Read More</p>
+                            <p className="read-more">View</p>
+                            <p className="created-date">
+                                Created on: {new Date(paste.createdAt).toLocaleDateString()} at{' '}
+                                {new Date(paste.createdAt).toLocaleTimeString()}
+                            </p>
                             <div className="actions">
                                 <i className="ri-pencil-line"></i>
                                 <i
