@@ -1,0 +1,135 @@
+/* ========== Page Container ========== */
+.home-container {
+    padding: 7rem 1rem 1rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ========== Form Section ========== */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.form-section input,
+.form-section textarea {
+    width:100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: #545454;
+    color: white;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-section textarea {
+    min-height: 130px;
+    resize: none;
+}
+
+.form-section button {
+    background-color: #dd3434;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    height: 38px;
+    width: 10%;
+    text-transform: uppercase;
+    transition: 0.2s ease;
+}
+
+.form-section button:hover {
+    background-color: #aca5a5;
+    color: black;
+}
+
+/* ========== Paste List Section ========== */
+.paste-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+/* ========== Individual Paste Card ========== */
+.paste-card {
+    background-color: #25282e;
+    padding: 1rem;
+    border-radius: 10px;
+    color: white;
+    position: relative;
+    transition: transform 0.1s ease-in-out;
+}
+
+.paste-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.paste-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    word-wrap: break-word;
+}
+
+.read-more {
+    font-size: 0.85rem;
+    color: #4ea8ff;
+    margin-bottom: 0.75rem;
+}
+
+/* ========== Action Icons ========== */
+.actions {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    color: #ccc;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.actions i:hover {
+    color: white;
+}
+
+
+/* ========== Mobile Adjustments ========== */
+@media (max-width: 600px) {
+    .form-section button {
+        width: 30%;
+        height: 40px;
+    }
+
+    .paste-card {
+        font-size: 0.95rem;
+    }
+
+    .form-section input,
+    .form-section textarea {
+        width: 100%;
+    }
+
+    .paste-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .form-section button {
+        width: 20%;
+    }
+
+    .paste-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
