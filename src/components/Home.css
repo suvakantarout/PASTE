@@ -67,6 +67,13 @@
     position: relative;
     transition: transform 0.1s ease-in-out;
 }
+.paste-view-date{
+    display: flex;
+    justify-content: space-between;
+}
+.read-more{
+    margin-top: 2px;
+}
 
 .paste-card:hover {
     transform: translateY(-5px);
@@ -93,18 +100,23 @@
     right: 1rem;
     display: flex;
     gap: 0.5rem;
-    color: #ccc;
+    color: #ffffff;
     font-size: 1.1rem;
     cursor: pointer;
 }
+.ri-pencil-line, .ri-delete-bin-line, .ri-external-link-line, .ri-file-copy-line{
+    border: 1px solid #818181;
+    border-radius: 3px;
+    padding: 3px;
+}
 
 .actions i:hover {
-    color: white;
+    color: #818181;
 }
 
 .created-date {
   font-size: 0.75rem;
-  color: #7a7a7a;
+  color: #818181;
   margin-top: 0.25rem;
 }
 

@@ -32,7 +32,7 @@ const Home = () => {
             <div className="form-section">
                 <input
                     type="text"
-                    placeholder="Enter your title (max 20 letters)"
+                    placeholder="Enter your title (max 15 letters)"
                     value={title}
                     onChange={(e) => setTitle(e.target.value.slice(0, 20))}
                 />
@@ -53,17 +53,29 @@ const Home = () => {
                     pastes.map((paste) => (
                         <div key={paste._id} className="paste-card">
                             <h3>{paste.title}.txt</h3>
-                            <p className="read-more">View</p>
+                            <div className='paste-view-date'>
+                                <p className="read-more">View</p>
+                                <p className="created-date">
+                                    {new Date(paste.createdAt).toLocaleDateString('en-US', {
+                                        month: 'long',
+                                        day: '2-digit',
+                                        year: 'numeric'
+                                    })}
+                                    {/* {new Date(paste.createdAt).toLocaleTimeString()} */}
+                                </p>
+                            </div>
+                            {/* <p className="read-more">View</p>
                             <p className="created-date">
-                                Created on: {new Date(paste.createdAt).toLocaleDateString()} at{' '}
+                                {new Date(paste.createdAt).toLocaleDateString()} at{' '}
                                 {new Date(paste.createdAt).toLocaleTimeString()}
-                            </p>
+                            </p> */}
                             <div className="actions">
                                 <i className="ri-pencil-line"></i>
                                 <i
                                     className="ri-delete-bin-line"
                                     onClick={() => dispatch(removeFromPaste(paste._id))}
                                 ></i>
+                                <i className="ri-file-copy-line"></i>
                                 <i className="ri-external-link-line"></i>
                             </div>
                         </div>
