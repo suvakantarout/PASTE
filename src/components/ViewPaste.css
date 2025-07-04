@@ -6,7 +6,7 @@
   background: #1e1e1e;
   color: white;
   border-radius: 10px;
-  box-shadow: 0 0 10px #333;
+  /* box-shadow: 0 0 10px #333; */
   box-sizing: border-box;
 }
 
@@ -57,6 +57,7 @@
   .view-paste-container {
     width: 90%;
     padding: 0.75rem;
+    margin: 8rem auto 2rem;
   }
 
   .view-title {

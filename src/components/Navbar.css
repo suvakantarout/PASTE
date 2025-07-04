@@ -34,7 +34,16 @@
   margin-bottom: 7px;
 }
 
-.ri-search-2-line{
+.ri-sun-fill, .ri-moon-fill{
     font-size: 25px;
     cursor: pointer;
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: black;
+  color: white;
 }
