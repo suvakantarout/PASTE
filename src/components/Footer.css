@@ -11,3 +11,9 @@
     height: 60px;
     margin-top: 40px;
 }
+
+@media (max-width: 600px) {
+    .footer {
+        margin-top: 151px;
+    }
+}

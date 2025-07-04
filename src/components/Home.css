@@ -7,16 +7,45 @@
 
 /* ========== Form Section ========== */
 .form-section {
+    max-width: 1000px;
+    /* margin: 0 auto; */
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
-    width: 100%;
+    gap: 1rem;
 }
 
-.form-section input,
+.top-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.top-row input {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: #545454;
+    color: white;
+    font-size: 1rem;
+}
+
+.top-button,
+.bottom-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+
 .form-section textarea {
-    width:100%;
+    width: 100%;
     padding: 0.75rem;
     border-radius: 8px;
     border: none;
@@ -27,9 +56,31 @@
     box-sizing: border-box;
 }
 
+.form-section input {
+    width: calc(100% - 120px);
+    /* 👈 reduce width while keeping left edge same */
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: #545454;
+    color: white;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.top-button {
+  display: inline-block; /* show on large screens */
+}
+
+.bottom-button {
+  display: none; /* hide by default */
+}
+
 .form-section textarea {
     min-height: 130px;
     resize: none;
+    margin-bottom: 20px;
 }
 
 .form-section button {
@@ -44,6 +95,7 @@
     width: 10%;
     text-transform: uppercase;
     transition: 0.2s ease;
+    margin-left: 1rem;
 }
 
 .form-section button:hover {
@@ -53,6 +105,8 @@
 
 /* ========== Paste List Section ========== */
 .paste-list {
+    max-width: 1178px;
+    margin: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
@@ -67,11 +121,13 @@
     position: relative;
     transition: transform 0.1s ease-in-out;
 }
-.paste-view-date{
+
+.paste-view-date {
     display: flex;
     justify-content: space-between;
 }
-.read-more{
+
+.read-more {
     margin-top: 2px;
 }
 
@@ -104,7 +160,11 @@
     font-size: 1.1rem;
     cursor: pointer;
 }
-.ri-pencil-line, .ri-delete-bin-line, .ri-external-link-line, .ri-file-copy-line{
+
+.ri-pencil-line,
+.ri-delete-bin-line,
+.ri-external-link-line,
+.ri-file-copy-line {
     border: 1px solid #818181;
     border-radius: 3px;
     padding: 3px;
@@ -115,39 +175,88 @@
 }
 
 .created-date {
-  font-size: 0.75rem;
-  color: #818181;
-  margin-top: 0.25rem;
+    font-size: 0.75rem;
+    color: #818181;
+    margin-top: 0.25rem;
 }
 
 
 /* ========== Mobile Adjustments ========== */
+/* ========== Small Devices (mobile, up to 600px) ========== */
 @media (max-width: 600px) {
-    .form-section button {
-        width: 30%;
-        height: 40px;
-    }
-
-    .paste-card {
-        font-size: 0.95rem;
+    .form-section {
+        flex-direction: column;
     }
 
     .form-section input,
     .form-section textarea {
         width: 100%;
+        /* 👈 Ensure both take full width */
+        box-sizing: border-box;
+    }
+
+    .form-section button {
+        width: 100%;
+        height: 40px;
+        margin-left: 0;
+        margin-bottom: 20px;
     }
 
     .paste-list {
         grid-template-columns: 1fr;
     }
+
+    .top-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .top-row button {
+        display: none;
+        /* Hide top button */
+    }
+
+    .bottom-button {
+        display: block;
+        /* Show button below textarea */
+    }
 }
 
+/* ========== Medium Devices (tablets: 601px to 1024px) ========== */
 @media (min-width: 601px) and (max-width: 1024px) {
+    .form-section {
+        flex-direction: column;
+    }
+
     .form-section button {
         width: 20%;
+        height: 40px;
+        margin-left: 0;
     }
 
     .paste-list {
         grid-template-columns: repeat(2, 1fr);
+        /* 2-column grid for tablets */
+    }
+
+    .top-row {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .top-row button {
+        display: block;
+        /* Show button next to input */
+        width: auto;
+    }
+
+    .bottom-button {
+        display: none;
+        /* Hide mobile-only button */
+    }
+
+    .form-section textarea {
+        margin-bottom: 20px;
     }
 }

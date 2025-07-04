@@ -49,7 +49,7 @@ export const pasteSlice = createSlice({
 
       state.pastes = updatedPastes;
       localStorage.setItem("pastes", JSON.stringify(state.pastes));
-      toast.success("Paste removed successfully");
+      toast.success("Paste removed");
     },
   },
 });

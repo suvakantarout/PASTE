@@ -28,8 +28,13 @@
 }
 
 #logo {
-  height: 45px;
+  height: 40px;
   object-fit: contain;
   display: block;
   margin-bottom: 7px;
+}
+
+.ri-search-2-line{
+    font-size: 25px;
+    cursor: pointer;
 }

@@ -30,25 +30,30 @@ const Home = () => {
         <div className="home-container">
             {/* ========== Form Section ========== */}
             <div className="form-section">
-                <input
-                    type="text"
-                    placeholder="Enter your title (max 15 letters)"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value.slice(0, 20))}
-                />
+                <div className='top-row'>
+                    <input
+                        type="text"
+                        placeholder="Enter your title (max 15 letters)"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value.slice(0, 15))}
+                    />
+
+                    <button onClick={createPaste} className='top-button'>CREATE</button>
+                </div>   
+
                 <textarea
                     placeholder="Write your description here..."
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
-                    rows={5}
+                    rows={13}
                 />
-                <button onClick={createPaste}>CREATE</button>
+                <button onClick={createPaste} className="bottom-button">CREATE</button>
             </div>
 
             {/* ========== Paste List Section ========== */}
             <div className="paste-list">
                 {pastes.length === 0 ? (
-                    <p style={{ color: 'white', textAlign: 'center' }}>No pastes yet</p>
+                    <p style={{ color: 'white', textAlign: 'center' }}>There are no pastes yet.Create one to get started.</p>
                 ) : (
                     pastes.map((paste) => (
                         <div key={paste._id} className="paste-card">
