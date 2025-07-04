@@ -1,16 +1,20 @@
 .view-paste-container {
-  max-width: 800px;
-  margin: 5rem auto 2rem;
+  width: 90%; /* Shrink the width from both sides */
+  max-width: 1100px;
+  margin: 7rem auto 2rem; /* centers horizontally */
   padding: 2rem;
   background: #1e1e1e;
   color: white;
   border-radius: 10px;
   box-shadow: 0 0 10px #333;
+  box-sizing: border-box;
 }
 
 .view-title {
   font-size: 2rem;
   margin-bottom: 0.5rem;
+  margin-top: 0;
+  word-wrap: break-word;
 }
 
 .view-date {
@@ -24,6 +28,43 @@
   padding: 1rem;
   border-radius: 8px;
   white-space: pre-wrap;
+  word-wrap: break-word;
   line-height: 1.5;
   font-family: monospace;
+  overflow-x: auto;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Responsive for tablets */
+@media (max-width: 768px) {
+  .view-paste-container {
+    width: 95%; /* Even more spacing on smaller screens */
+    padding: 1rem;
+  }
+
+  .view-title {
+    font-size: 1.5rem;
+  }
+
+  .view-content {
+    font-size: 0.95rem;
+  }
+}
+
+/* Responsive for mobile */
+@media (max-width: 480px) {
+  .view-paste-container {
+    width: 90%;
+    padding: 0.75rem;
+  }
+
+  .view-title {
+    font-size: 1.25rem;
+  }
+
+  .view-content {
+    font-size: 0.85rem;
+    padding: 0.75rem;
+  }
 }

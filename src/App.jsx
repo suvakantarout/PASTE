@@ -7,45 +7,45 @@ import ViewPaste from './components/ViewPaste'
 import UpdatePaste from './components/UpdatePaste'
 import Footer from './components/Footer'
 
+// Reusable layout wrapper
+const PageLayout = ({ children }) => (
+  <div className="page-wrapper">
+    <Navbar />
+    <div className="main-content">{children}</div>
+    <Footer />
+  </div>
+);
 
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element:
-      <div>
-        <Navbar />
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <PageLayout>
         <Home />
-        <Footer />
-      </div> 
-    },
-    {
-      path: "/:id",
-      element:
-      <div>
-        <Navbar />
+      </PageLayout>
+    )
+  },
+  {
+    path: "/:id",
+    element: (
+      <PageLayout>
         <ViewPaste />
-        <Footer />
-      </div>
-    },
-    {
-      path: "/:id/update",
-      element:
-      <div>
-        <Navbar />
+      </PageLayout>
+    )
+  },
+  {
+    path: "/:id/update",
+    element: (
+      <PageLayout>
         <UpdatePaste />
-        <Footer />
-      </div>
-    },
-  ]
-)
+      </PageLayout>
+    )
+  }
+]);
 
 function App() {
-
   return (
-    <div>
-      <RouterProvider router={router} />
-    </div>
+    <RouterProvider router={router} />
   )
 }
 

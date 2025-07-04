@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateToPaste } from '../features/pasteSlice'; // ✅ Only one import
+import { updateToPaste } from '../features/pasteSlice';
 import toast from 'react-hot-toast';
 import './UpdatePaste.css'; 
 
@@ -52,7 +52,7 @@ const UpdatePaste = () => {
         placeholder="Update title"
       />
       <textarea
-        rows={10}
+        rows={13}
         value={content}
         onChange={(e) => setContent(e.target.value)}
         placeholder="Update content"
