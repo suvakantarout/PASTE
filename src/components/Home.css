@@ -8,7 +8,6 @@
 /* ========== Form Section ========== */
 .form-section {
     max-width: 1000px;
-    /* margin: 0 auto; */
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -43,7 +42,6 @@
     cursor: pointer;
 }
 
-
 .form-section textarea {
     width: 100%;
     padding: 0.75rem;
@@ -54,11 +52,13 @@
     color: white;
     font-size: 1rem;
     box-sizing: border-box;
+    min-height: 130px;
+    resize: none;
+    margin-bottom: 20px;
 }
 
 .form-section input {
     width: calc(100% - 120px);
-    /* 👈 reduce width while keeping left edge same */
     padding: 0.75rem;
     border-radius: 8px;
     border: none;
@@ -67,20 +67,6 @@
     color: white;
     font-size: 1rem;
     box-sizing: border-box;
-}
-
-.top-button {
-  display: inline-block; /* show on large screens */
-}
-
-.bottom-button {
-  display: none; /* hide by default */
-}
-
-.form-section textarea {
-    min-height: 130px;
-    resize: none;
-    margin-bottom: 20px;
 }
 
 .form-section button {
@@ -103,6 +89,14 @@
     color: black;
 }
 
+.top-button {
+    display: inline-block;
+}
+
+.bottom-button {
+    display: none;
+}
+
 /* ========== Paste List Section ========== */
 .paste-list {
     max-width: 1178px;
@@ -122,15 +116,6 @@
     transition: transform 0.1s ease-in-out;
 }
 
-.paste-view-date {
-    display: flex;
-    justify-content: space-between;
-}
-
-.read-more {
-    margin-top: 2px;
-}
-
 .paste-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -143,10 +128,23 @@
     word-wrap: break-word;
 }
 
+.paste-view-date {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .read-more {
+    margin-top: 2px;
+    text-decoration: none;
     font-size: 0.85rem;
     color: #4ea8ff;
-    margin-bottom: 0.75rem;
+}
+
+.created-date {
+    font-size: 0.75rem;
+    color: #818181;
+    margin-top: 0.25rem;
 }
 
 /* ========== Action Icons ========== */
@@ -161,6 +159,16 @@
     cursor: pointer;
 }
 
+.actions a,
+.actions i {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
 .ri-pencil-line,
 .ri-delete-bin-line,
 .ri-external-link-line,
@@ -168,21 +176,19 @@
     border: 1px solid #818181;
     border-radius: 3px;
     padding: 3px;
+    height: 22px;
+    width: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.actions i:hover {
+.actions i:hover,
+.actions a:hover {
     color: #818181;
 }
 
-.created-date {
-    font-size: 0.75rem;
-    color: #818181;
-    margin-top: 0.25rem;
-}
-
-
-/* ========== Mobile Adjustments ========== */
-/* ========== Small Devices (mobile, up to 600px) ========== */
+/* ========== Responsive: Small Devices (mobile, up to 600px) ========== */
 @media (max-width: 600px) {
     .form-section {
         flex-direction: column;
@@ -191,7 +197,6 @@
     .form-section input,
     .form-section textarea {
         width: 100%;
-        /* 👈 Ensure both take full width */
         box-sizing: border-box;
     }
 
@@ -213,16 +218,14 @@
 
     .top-row button {
         display: none;
-        /* Hide top button */
     }
 
     .bottom-button {
         display: block;
-        /* Show button below textarea */
     }
 }
 
-/* ========== Medium Devices (tablets: 601px to 1024px) ========== */
+/* ========== Responsive: Medium Devices (tablets: 601px to 1024px) ========== */
 @media (min-width: 601px) and (max-width: 1024px) {
     .form-section {
         flex-direction: column;
@@ -236,7 +239,6 @@
 
     .paste-list {
         grid-template-columns: repeat(2, 1fr);
-        /* 2-column grid for tablets */
     }
 
     .top-row {
@@ -247,16 +249,22 @@
 
     .top-row button {
         display: block;
-        /* Show button next to input */
         width: auto;
     }
 
     .bottom-button {
         display: none;
-        /* Hide mobile-only button */
     }
 
     .form-section textarea {
         margin-bottom: 20px;
+    }
+
+    .ri-pencil-line,
+    .ri-delete-bin-line,
+    .ri-external-link-line,
+    .ri-file-copy-line {
+        height: 15px;
+        width: 15px;
     }
 }

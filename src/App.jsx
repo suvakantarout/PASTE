@@ -1,6 +1,4 @@
 import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Navbar from './components/Navbar'
@@ -8,6 +6,7 @@ import Home from './components/Home'
 import ViewPaste from './components/ViewPaste'
 import UpdatePaste from './components/UpdatePaste'
 import Footer from './components/Footer'
+
 
 const router = createBrowserRouter(
   [

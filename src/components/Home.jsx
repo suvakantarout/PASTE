@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToPaste, removeFromPaste } from '../features/pasteSlice';
 import './Home.css';
+import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+
 
 const Home = () => {
     const [title, setTitle] = useState('');
@@ -9,6 +12,8 @@ const Home = () => {
     const dispatch = useDispatch();
     const pastes = useSelector((state) => state.paste.pastes);
 
+    
+    // Create paste Function
     const createPaste = () => {
         if (!title.trim() || !value.trim()) {
             return alert('Title and content cannot be empty.');
@@ -26,6 +31,30 @@ const Home = () => {
         setValue('');
     };
 
+
+    // Function for share any paste
+    const handleShare = (paste) => {
+        const link = `${window.location.origin}/${paste._id}`;
+        const shareText = `📄 ${paste.title}\n\n${paste.content}\n\n🔗 ${link}`;
+
+        if (navigator.share) {
+            navigator
+                .share({
+                    title: paste.title,
+                    text: shareText,
+                    url: link,
+                })
+                .then(() => console.log("Shared successfully"))
+                .catch((err) => console.error("Error sharing:", err));
+        } else {
+            const whatsappLink = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+            window.open(whatsappLink, "_blank");
+        }
+    };
+
+
+
+
     return (
         <div className="home-container">
             {/* ========== Form Section ========== */}
@@ -39,7 +68,7 @@ const Home = () => {
                     />
 
                     <button onClick={createPaste} className='top-button'>CREATE</button>
-                </div>   
+                </div>
 
                 <textarea
                     placeholder="Write your description here..."
@@ -59,7 +88,8 @@ const Home = () => {
                         <div key={paste._id} className="paste-card">
                             <h3>{paste.title}.txt</h3>
                             <div className='paste-view-date'>
-                                <p className="read-more">View</p>
+                                <Link to={`/${paste._id}`} className="read-more">View</Link>
+
                                 <p className="created-date">
                                     {new Date(paste.createdAt).toLocaleDateString('en-US', {
                                         month: 'long',
@@ -75,13 +105,24 @@ const Home = () => {
                                 {new Date(paste.createdAt).toLocaleTimeString()}
                             </p> */}
                             <div className="actions">
-                                <i className="ri-pencil-line"></i>
+                                <Link to={`/${paste._id}/update`}>
+                                    <i className="ri-pencil-line"></i>
+                                </Link>
                                 <i
                                     className="ri-delete-bin-line"
                                     onClick={() => dispatch(removeFromPaste(paste._id))}
                                 ></i>
-                                <i className="ri-file-copy-line"></i>
-                                <i className="ri-external-link-line"></i>
+                                <i
+                                    className="ri-file-copy-line"
+                                    onClick={() => {
+                                        navigator.clipboard.writeText(paste.content);
+                                        toast.success("Copied");
+                                    }}
+                                ></i>
+                                <i
+                                    className="ri-external-link-line"
+                                    onClick={() => handleShare(paste)}
+                                ></i>
                             </div>
                         </div>
                     ))
