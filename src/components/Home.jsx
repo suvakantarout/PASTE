@@ -12,7 +12,7 @@ const Home = () => {
     const dispatch = useDispatch();
     const pastes = useSelector((state) => state.paste.pastes);
 
-    
+
     // Create paste Function
     const createPaste = () => {
         if (!title.trim() || !value.trim()) {
@@ -34,7 +34,7 @@ const Home = () => {
 
     // Function for share any paste
     const handleShare = (paste) => {
-        const link = `${window.location.origin}/${paste._id}`;
+        const link = `https://paste-mu.vercel.app/${paste._id}`;
         const shareText = `📄 ${paste.title}\n\n${paste.content}\n\n🔗 ${link}`;
 
         if (navigator.share) {
