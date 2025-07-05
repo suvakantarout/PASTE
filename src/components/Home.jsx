@@ -34,7 +34,7 @@ const Home = () => {
 
     // Function for share any paste
     const handleShare = (paste) => {
-        const link = `https://paste-mu.vercel.app/${paste._id}`;
+        const link = `https://paste-mu.vercel.app`;
         const shareText = `📄 ${paste.title}\n\n${paste.content}\n\n🔗 ${link}`;
 
         if (navigator.share) {
