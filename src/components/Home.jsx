@@ -42,7 +42,6 @@ const Home = () => {
                 .share({
                     title: paste.title,
                     text: shareText,
-                    // url: link,
                 })
                 .then(() => console.log("Shared successfully"))
                 .catch((err) => console.error("Error sharing:", err));
