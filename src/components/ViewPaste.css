@@ -55,7 +55,7 @@
 /* Responsive for mobile */
 @media (max-width: 480px) {
   .view-paste-container {
-    width: 87%;
+    width: 88%;
     padding: 0.75rem;
     margin: 8rem auto 2rem;
   }
